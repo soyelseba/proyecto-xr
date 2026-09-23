@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://lo6oqqwia0cj"]
 
 [ext_resource type="Script" uid="uid://crq6ag42ogido" path="res://scripts/xr_main.gd" id="1_1fyq6"]
+[ext_resource type="PackedScene" uid="uid://cahmjuosb117k" path="res://scenes/grabbable_cube.tscn" id="2_3carf"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ojbw0"]
 size = Vector3(10, 0.1, 10)
@@ -12,6 +13,7 @@ size = Vector3(10, 0.1, 10)
 script = ExtResource("1_1fyq6")
 
 [node name="XROrigin3D" type="XROrigin3D" parent="." unique_id=1952479938]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D" unique_id=635253682]
 
@@ -58,3 +60,12 @@ mesh = SubResource("BoxMesh_ojbw0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level/StaticBody3D3" unique_id=1716638665]
 shape = SubResource("BoxShape3D_l42ft")
+
+[node name="Cubo1" parent="." unique_id=1916234020 instance=ExtResource("2_3carf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1.5)
+
+[node name="Cubo2" parent="." unique_id=949436511 instance=ExtResource("2_3carf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -1.5)
+
+[node name="Cubo3" parent="." unique_id=2023135592 instance=ExtResource("2_3carf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -1.5)
