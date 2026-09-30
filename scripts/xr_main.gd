@@ -13,6 +13,6 @@ func _ready() -> void:
 		if not initialized:
 			push_error("No se pudo inicializar la interfaz XR")
 			return
-		
-		get_viewport().use_xr = true
-		print("OpenXR inicializado correctamente.")
+
+	get_viewport().use_xr = true
+	print("OpenXR inicializado correctamente.")

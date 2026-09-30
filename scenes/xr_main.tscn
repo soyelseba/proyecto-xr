@@ -2,6 +2,27 @@
 
 [ext_resource type="Script" uid="uid://crq6ag42ogido" path="res://scripts/xr_main.gd" id="1_1fyq6"]
 [ext_resource type="PackedScene" uid="uid://cahmjuosb117k" path="res://scenes/grabbable_cube.tscn" id="2_3carf"]
+[ext_resource type="Script" uid="uid://gtcq8cujq7bv" path="res://scripts/xr_hand.gd" id="2_qwytd"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qwytd"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_bfvqv"]
+sky_material = SubResource("ProceduralSkyMaterial_qwytd")
+
+[sub_resource type="Environment" id="Environment_m238l"]
+background_mode = 2
+sky = SubResource("Sky_bfvqv")
+glow_enabled = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_r5iys"]
+radius = 0.04
+height = 0.08
+
+[sub_resource type="SphereMesh" id="SphereMesh_ojbw0"]
+radius = 0.04
+height = 0.08
 
 [sub_resource type="BoxMesh" id="BoxMesh_ojbw0"]
 size = Vector3(10, 0.1, 10)
@@ -12,22 +33,41 @@ size = Vector3(10, 0.1, 10)
 [node name="XRMain" type="Node3D" unique_id=233202491]
 script = ExtResource("1_1fyq6")
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=357693565]
+environment = SubResource("Environment_m238l")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=512240220]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
 [node name="XROrigin3D" type="XROrigin3D" parent="." unique_id=1952479938]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D" unique_id=635253682]
 
-[node name="LeftController" type="XRController3D" parent="XROrigin3D" unique_id=1074629117]
+[node name="LeftController" type="XRController3D" parent="XROrigin3D" unique_id=1074629117 node_paths=PackedStringArray("raycast")]
 tracker = &"/user/hand_tracker/left"
+script = ExtResource("2_qwytd")
+grab_action = &"ui_left"
+raycast = NodePath("RayCast3D")
 
 [node name="RayCast3D" type="RayCast3D" parent="XROrigin3D/LeftController" unique_id=1194952738]
 target_position = Vector3(0, 0, -3)
 
-[node name="RightController" type="XRController3D" parent="XROrigin3D" unique_id=2060222320]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/LeftController" unique_id=187952121]
+mesh = SubResource("SphereMesh_r5iys")
+
+[node name="RightController" type="XRController3D" parent="XROrigin3D" unique_id=2060222320 node_paths=PackedStringArray("raycast")]
 tracker = &"/user/hand_tracker/right"
+script = ExtResource("2_qwytd")
+grab_action = &"ui_right"
+raycast = NodePath("RayCast3D")
 
 [node name="RayCast3D" type="RayCast3D" parent="XROrigin3D/RightController" unique_id=213230647]
 target_position = Vector3(0, 0, -3)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/RightController" unique_id=302345325]
+mesh = SubResource("SphereMesh_ojbw0")
 
 [node name="Level" type="Node3D" parent="." unique_id=2084689532]
 
