@@ -1,0 +1,29 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://features/vr/interaction/vr_lever.gd" id="1_8albj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g3rsv"]
+resource_local_to_scene = true
+albedo_color = Color(0.8, 0.3, 0.5, 1)
+roughness = 0.8
+
+[sub_resource type="BoxMesh" id="BoxMesh_igc6k"]
+size = Vector3(0.08, 0.5, 0.08)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f3du1"]
+size = Vector3(0.16, 0.5, 0.16)
+
+[node name="VRLever" type="AnimatableBody3D" unique_id=279349095]
+collision_layer = 8
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("1_8albj")
+
+[node name="Visual" type="MeshInstance3D" parent="." unique_id=79554579]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+material_override = SubResource("StandardMaterial3D_g3rsv")
+mesh = SubResource("BoxMesh_igc6k")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="." unique_id=818590125]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("BoxShape3D_f3du1")

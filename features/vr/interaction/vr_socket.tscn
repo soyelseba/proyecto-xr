@@ -1,0 +1,30 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://features/vr/interaction/vr_socket.gd" id="1_hitvb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2b12y"]
+size = Vector3(0.38, 0.38, 0.38)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s5sm2"]
+resource_local_to_scene = true
+albedo_color = Color(0.1, 0.9, 0.7, 1)
+roughness = 0.8
+
+[sub_resource type="TorusMesh" id="TorusMesh_wcys2"]
+inner_radius = 0.13
+outer_radius = 0.19
+
+[node name="VRSocket" type="Area3D" unique_id=417194184]
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("1_hitvb")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="." unique_id=467068967]
+shape = SubResource("BoxShape3D_2b12y")
+
+[node name="SnapPoint" type="Marker3D" parent="." unique_id=1226653283]
+unique_name_in_owner = true
+
+[node name="SocketRing" type="MeshInstance3D" parent="." unique_id=1000758878]
+material_override = SubResource("StandardMaterial3D_s5sm2")
+mesh = SubResource("TorusMesh_wcys2")

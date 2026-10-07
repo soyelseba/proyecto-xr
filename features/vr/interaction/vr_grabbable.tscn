@@ -1,0 +1,29 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://features/vr/interaction/vr_grabbable.gd" id="1_17kdo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nkfse"]
+resource_local_to_scene = true
+albedo_color = Color(0.95, 0.55, 0.15, 1)
+roughness = 0.8
+
+[sub_resource type="BoxMesh" id="BoxMesh_agayr"]
+size = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dv15a"]
+size = Vector3(0.2, 0.2, 0.2)
+
+[node name="VRGrabbable" type="RigidBody3D" unique_id=1716703338]
+collision_layer = 2
+collision_mask = 11
+mass = 0.3
+continuous_cd = true
+script = ExtResource("1_17kdo")
+
+[node name="Visual" type="MeshInstance3D" parent="." unique_id=1494275375]
+unique_name_in_owner = true
+material_override = SubResource("StandardMaterial3D_nkfse")
+mesh = SubResource("BoxMesh_agayr")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="." unique_id=401384148]
+shape = SubResource("BoxShape3D_dv15a")

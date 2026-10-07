@@ -1,0 +1,101 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://features/vr/player/vr_player.gd" id="1_whbb0"]
+[ext_resource type="Resource" path="res://features/vr/player/default_vr_settings.tres" id="2_xhqva"]
+[ext_resource type="Shader" path="res://features/vr/player/comfort.gdshader" id="3_da2w8"]
+[ext_resource type="PackedScene" path="res://features/vr/hands/vr_hand.tscn" id="4_nlt5x"]
+[ext_resource type="Script" path="res://features/vr/hands/vr_hand.gd" id="5_kx81v"]
+[ext_resource type="Script" path="res://features/vr/player/vr_input.gd" id="6_lnyxi"]
+[ext_resource type="Script" path="res://features/vr/player/vr_locomotion.gd" id="7_incvg"]
+[ext_resource type="Script" path="res://features/vr/session/xr_session.gd" id="8_p2byd"]
+[ext_resource type="Script" path="res://features/vr/session/vr_boundary.gd" id="9_e2068"]
+[ext_resource type="Script" path="res://features/vr/player/vr_head_collision.gd" id="10_8f2tu"]
+[ext_resource type="PackedScene" path="res://features/vr/locomotion/vr_teleport.tscn" id="11_sueo4"]
+[ext_resource type="Script" path="res://features/vr/locomotion/vr_teleport.gd" id="12_r0t5q"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rsndh"]
+resource_local_to_scene = true
+radius = 0.22
+height = 1.7
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ugviu"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("3_da2w8")
+shader_parameter/vignette = null
+shader_parameter/blackout = null
+
+[sub_resource type="SphereMesh" id="SphereMesh_h8sdm"]
+radius = 0.12
+height = 0.24
+
+[node name="VRPlayer" type="CharacterBody3D" unique_id=1110837993]
+collision_layer = 4
+collision_mask = 9
+floor_max_angle = 0.6981317
+floor_snap_length = 0.25
+script = ExtResource("1_whbb0")
+defaults = ExtResource("2_xhqva")
+
+[node name="BodyShape" type="CollisionShape3D" parent="." unique_id=1318992404]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.87, 0)
+shape = SubResource("CapsuleShape3D_rsndh")
+
+[node name="XROrigin" type="XROrigin3D" parent="." unique_id=1484478698]
+unique_name_in_owner = true
+
+[node name="Head" type="XRCamera3D" parent="XROrigin" unique_id=2026991667]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+current = true
+
+[node name="ComfortMask" type="MeshInstance3D" parent="XROrigin/Head" unique_id=1342071684]
+unique_name_in_owner = true
+material_override = SubResource("ShaderMaterial_ugviu")
+cast_shadow = 0
+mesh = SubResource("SphereMesh_h8sdm")
+
+[node name="BoundaryWarning" type="Label3D" parent="XROrigin/Head" unique_id=926121664]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, -1.2)
+visible = false
+pixel_size = 0.0025
+modulate = Color(1, 0.6, 0.2, 1)
+text = "Límite del área física: vuelve al centro"
+font_size = 28
+outline_size = 6
+
+[node name="LeftHand" type="Node3D" parent="XROrigin" unique_id=1975585356 instance=ExtResource("4_nlt5x")]
+unique_name_in_owner = true
+script = ExtResource("5_kx81v")
+
+[node name="RightHand" type="Node3D" parent="XROrigin" unique_id=714064669 instance=ExtResource("4_nlt5x")]
+unique_name_in_owner = true
+script = ExtResource("5_kx81v")
+tracker_name = &"right_hand"
+hand_color = Color(0.8, 0.35, 0.6, 1)
+
+[node name="InputAdapter" type="Node" parent="." unique_id=908308975]
+unique_name_in_owner = true
+script = ExtResource("6_lnyxi")
+
+[node name="Locomotion" type="Node" parent="." unique_id=1749883595]
+unique_name_in_owner = true
+script = ExtResource("7_incvg")
+
+[node name="XRSession" type="Node" parent="." unique_id=765991121]
+unique_name_in_owner = true
+script = ExtResource("8_p2byd")
+
+[node name="Boundary" type="Node" parent="." unique_id=1781434722 node_paths=PackedStringArray("warning_label")]
+unique_name_in_owner = true
+script = ExtResource("9_e2068")
+warning_label = NodePath("../XROrigin/Head/BoundaryWarning")
+
+[node name="HeadCollision" type="Node" parent="." unique_id=1275834925]
+unique_name_in_owner = true
+script = ExtResource("10_8f2tu")
+
+[node name="Teleport" type="Node3D" parent="." unique_id=1254689137 instance=ExtResource("11_sueo4")]
+unique_name_in_owner = true
+script = ExtResource("12_r0t5q")

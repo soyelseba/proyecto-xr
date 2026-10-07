@@ -1,0 +1,70 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://features/vr/hands/vr_hand.gd" id="1_3c1m6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o1xqq"]
+resource_local_to_scene = true
+albedo_color = Color(0.2, 0.7, 0.85, 1)
+roughness = 0.8
+
+[sub_resource type="SphereMesh" id="SphereMesh_l8y8o"]
+radius = 0.045
+height = 0.09
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_xtxwc"]
+radius = 0.18
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iqgwv"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(0.4, 0.6, 0.8, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xiejc"]
+size = Vector3(0.004, 0.004, 1)
+
+[node name="VRHand" type="Node3D" unique_id=1975585356]
+script = ExtResource("1_3c1m6")
+
+[node name="Grip" type="XRController3D" parent="." unique_id=796594495]
+unique_name_in_owner = true
+tracker = &"left_hand"
+pose = &"grip"
+
+[node name="HandVisual" type="MeshInstance3D" parent="Grip" unique_id=1765239048]
+unique_name_in_owner = true
+material_override = SubResource("StandardMaterial3D_o1xqq")
+mesh = SubResource("SphereMesh_l8y8o")
+
+[node name="HoldPoint" type="Marker3D" parent="Grip" unique_id=1237820005]
+unique_name_in_owner = true
+
+[node name="GrabArea" type="Area3D" parent="Grip" unique_id=831621024]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 10
+
+[node name="GrabShape" type="CollisionShape3D" parent="Grip/GrabArea" unique_id=969413663]
+shape = SubResource("SphereShape3D_xtxwc")
+
+[node name="Aim" type="XRController3D" parent="." unique_id=1256022733]
+unique_name_in_owner = true
+tracker = &"left_hand"
+pose = &"aim"
+
+[node name="InteractionRay" type="RayCast3D" parent="Aim" unique_id=92376365]
+unique_name_in_owner = true
+target_position = Vector3(0, 0, -4)
+collision_mask = 11
+
+[node name="Beam" type="MeshInstance3D" parent="Aim" unique_id=228041978]
+unique_name_in_owner = true
+material_override = SubResource("StandardMaterial3D_iqgwv")
+mesh = SubResource("BoxMesh_xiejc")
+
+[node name="Hint" type="Label3D" parent="Aim" unique_id=1914272309]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, -0.5)
+pixel_size = 0.001
+modulate = Color(0.85, 0.94, 1, 1)
+font_size = 24
+outline_size = 6

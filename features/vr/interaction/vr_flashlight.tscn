@@ -1,0 +1,40 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://features/vr/interaction/vr_flashlight.gd" id="1_tbn34"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_omtcm"]
+resource_local_to_scene = true
+albedo_color = Color(0.5, 0.6, 0.8, 1)
+roughness = 0.8
+
+[sub_resource type="BoxMesh" id="BoxMesh_51qwb"]
+size = Vector3(0.08, 0.08, 0.25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aj18h"]
+size = Vector3(0.08, 0.08, 0.25)
+
+[node name="VRFlashlight" type="RigidBody3D" unique_id=128993194]
+collision_layer = 2
+collision_mask = 11
+mass = 0.25
+continuous_cd = true
+script = ExtResource("1_tbn34")
+display_name = "Linterna"
+color = Color(0.5, 0.6, 0.8, 1)
+item_id = &"flashlight"
+
+[node name="Visual" type="MeshInstance3D" parent="." unique_id=786375226]
+unique_name_in_owner = true
+material_override = SubResource("StandardMaterial3D_omtcm")
+mesh = SubResource("BoxMesh_51qwb")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="." unique_id=2134577545]
+shape = SubResource("BoxShape3D_aj18h")
+
+[node name="Light" type="SpotLight3D" parent="." unique_id=1879894255]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.14)
+visible = false
+light_energy = 3.0
+spot_range = 8.0
+spot_angle = 25.0

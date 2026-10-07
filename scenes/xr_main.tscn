@@ -1,111 +1,154 @@
 [gd_scene format=3 uid="uid://lo6oqqwia0cj"]
 
-[ext_resource type="Script" uid="uid://crq6ag42ogido" path="res://scripts/xr_main.gd" id="1_1fyq6"]
-[ext_resource type="PackedScene" uid="uid://cahmjuosb117k" path="res://scenes/grabbable_cube.tscn" id="2_3carf"]
-[ext_resource type="Script" uid="uid://gtcq8cujq7bv" path="res://scripts/xr_hand.gd" id="2_qwytd"]
+[ext_resource type="PackedScene" path="res://examples/interaction_lab/interaction_lab.tscn" id="1"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qwytd"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1fyq6"]
+resource_local_to_scene = true
+albedo_color = Color(0.12, 0.18, 0.23, 1)
+roughness = 0.8
 
-[sub_resource type="Sky" id="Sky_bfvqv"]
-sky_material = SubResource("ProceduralSkyMaterial_qwytd")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3carf"]
+resource_local_to_scene = true
+albedo_color = Color(0.16, 0.23, 0.3, 1)
+roughness = 0.8
 
-[sub_resource type="Environment" id="Environment_m238l"]
-background_mode = 2
-sky = SubResource("Sky_bfvqv")
-glow_enabled = true
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qwytd"]
+resource_local_to_scene = true
+albedo_color = Color(0.16, 0.23, 0.3, 1)
+roughness = 0.8
 
-[sub_resource type="SphereMesh" id="SphereMesh_r5iys"]
-radius = 0.04
-height = 0.08
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bfvqv"]
+resource_local_to_scene = true
+albedo_color = Color(0.16, 0.23, 0.3, 1)
+roughness = 0.8
 
-[sub_resource type="SphereMesh" id="SphereMesh_ojbw0"]
-radius = 0.04
-height = 0.08
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m238l"]
+resource_local_to_scene = true
+albedo_color = Color(0.16, 0.23, 0.3, 1)
+roughness = 0.8
 
-[sub_resource type="BoxMesh" id="BoxMesh_ojbw0"]
-size = Vector3(10, 0.1, 10)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hcxy1"]
+resource_local_to_scene = true
+albedo_color = Color(0.2, 0.28, 0.35, 1)
+roughness = 0.8
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_l42ft"]
-size = Vector3(10, 0.1, 10)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sg4qo"]
+resource_local_to_scene = true
+albedo_color = Color(0.1, 0.2, 0.3, 1)
+roughness = 0.8
 
-[node name="XRMain" type="Node3D" unique_id=233202491]
-script = ExtResource("1_1fyq6")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dyqt7"]
+resource_local_to_scene = true
+albedo_color = Color(0.2, 0.28, 0.35, 1)
+roughness = 0.8
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=357693565]
-environment = SubResource("Environment_m238l")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w05pi"]
+resource_local_to_scene = true
+albedo_color = Color(0.9, 0.3, 0.5, 1)
+roughness = 0.8
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=512240220]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-shadow_enabled = true
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bja20"]
+resource_local_to_scene = true
+albedo_color = Color(0.2, 0.28, 0.35, 1)
+roughness = 0.8
 
-[node name="XROrigin3D" type="XROrigin3D" parent="." unique_id=1952479938]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g7akx"]
+resource_local_to_scene = true
+albedo_color = Color(0.3, 0.4, 0.5, 1)
+roughness = 0.8
 
-[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D" unique_id=635253682]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m2qt5"]
+resource_local_to_scene = true
+albedo_color = Color(0.3, 0.4, 0.5, 1)
+roughness = 0.8
 
-[node name="LeftController" type="XRController3D" parent="XROrigin3D" unique_id=1074629117 node_paths=PackedStringArray("raycast")]
-tracker = &"/user/hand_tracker/left"
-script = ExtResource("2_qwytd")
-grab_action = &"ui_left"
-raycast = NodePath("RayCast3D")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fbmth"]
+resource_local_to_scene = true
+albedo_color = Color(0.1, 0.4, 0.38, 1)
+roughness = 0.8
 
-[node name="RayCast3D" type="RayCast3D" parent="XROrigin3D/LeftController" unique_id=1194952738]
-target_position = Vector3(0, 0, -3)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a2rf4"]
+resource_local_to_scene = true
+albedo_color = Color(0.12, 0.45, 0.4, 1)
+roughness = 0.8
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/LeftController" unique_id=187952121]
-mesh = SubResource("SphereMesh_r5iys")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jepv5"]
+resource_local_to_scene = true
+albedo_color = Color(0.75, 0.4, 0.1, 1)
+roughness = 0.8
 
-[node name="RightController" type="XRController3D" parent="XROrigin3D" unique_id=2060222320 node_paths=PackedStringArray("raycast")]
-tracker = &"/user/hand_tracker/right"
-script = ExtResource("2_qwytd")
-grab_action = &"ui_right"
-raycast = NodePath("RayCast3D")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u0xan"]
+resource_local_to_scene = true
+albedo_color = Color(0.75, 0.4, 0.1, 1)
+roughness = 0.8
 
-[node name="RayCast3D" type="RayCast3D" parent="XROrigin3D/RightController" unique_id=213230647]
-target_position = Vector3(0, 0, -3)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jm86x"]
+resource_local_to_scene = true
+albedo_color = Color(0.75, 0.4, 0.1, 1)
+roughness = 0.8
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/RightController" unique_id=302345325]
-mesh = SubResource("SphereMesh_ojbw0")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_irgnt"]
+resource_local_to_scene = true
+albedo_color = Color(0.75, 0.4, 0.1, 1)
+roughness = 0.8
 
-[node name="Level" type="Node3D" parent="." unique_id=2084689532]
+[node name="XRMain" unique_id=434105165 instance=ExtResource("1")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Level" unique_id=1189556886]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
-metadata/_edit_group_ = true
+[node name="Visual" parent="World/Floor" parent_id_path=PackedInt32Array(1568711307) index="0" unique_id=157670624]
+material_override = SubResource("StandardMaterial3D_1fyq6")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/StaticBody3D" unique_id=1242989206]
-mesh = SubResource("BoxMesh_ojbw0")
+[node name="Visual" parent="World/BackWall" parent_id_path=PackedInt32Array(1413461805) index="0" unique_id=380950415]
+material_override = SubResource("StandardMaterial3D_3carf")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/StaticBody3D" unique_id=1134785942]
-shape = SubResource("BoxShape3D_l42ft")
+[node name="Visual" parent="World/LeftWall" parent_id_path=PackedInt32Array(1147804321) index="0" unique_id=1744822355]
+material_override = SubResource("StandardMaterial3D_qwytd")
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="Level" unique_id=837324427]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 5, -5)
-metadata/_edit_group_ = true
+[node name="Visual" parent="World/RightWall" parent_id_path=PackedInt32Array(155444046) index="0" unique_id=1347408346]
+material_override = SubResource("StandardMaterial3D_bfvqv")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/StaticBody3D2" unique_id=121162419]
-mesh = SubResource("BoxMesh_ojbw0")
+[node name="Visual" parent="World/FrontWall" parent_id_path=PackedInt32Array(1392141546) index="0" unique_id=139617379]
+material_override = SubResource("StandardMaterial3D_m238l")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/StaticBody3D2" unique_id=1151425041]
-shape = SubResource("BoxShape3D_l42ft")
+[node name="Subtitle" parent="." index="5" unique_id=1742027968]
+text = "Godot 4.7 / Oculus Quest 3
+INACAP Renca - Prof. Sebastian Morales
+Explora las estaciones. Grip toma, gatillo usa, A teletransporta."
 
-[node name="StaticBody3D3" type="StaticBody3D" parent="Level" unique_id=661587400]
-transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 5, 5, 0)
-metadata/_edit_group_ = true
+[node name="Visual" parent="Stations/GrabTable" parent_id_path=PackedInt32Array(799275405) index="0" unique_id=143472819]
+material_override = SubResource("StandardMaterial3D_hcxy1")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/StaticBody3D3" unique_id=488967085]
-mesh = SubResource("BoxMesh_ojbw0")
+[node name="Visual" parent="Stations/ControlPanel" parent_id_path=PackedInt32Array(161707359) index="0" unique_id=1468490129]
+material_override = SubResource("StandardMaterial3D_sg4qo")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/StaticBody3D3" unique_id=1716638665]
-shape = SubResource("BoxShape3D_l42ft")
+[node name="Visual" parent="Stations/LeverTable" parent_id_path=PackedInt32Array(41829571) index="0" unique_id=207053235]
+material_override = SubResource("StandardMaterial3D_dyqt7")
 
-[node name="Cubo1" parent="." unique_id=1916234020 instance=ExtResource("2_3carf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1.5)
+[node name="LeverIndicator" parent="Stations" parent_id_path=PackedInt32Array(529072494) index="16" unique_id=261893470]
+material_override = SubResource("StandardMaterial3D_w05pi")
 
-[node name="Cubo2" parent="." unique_id=949436511 instance=ExtResource("2_3carf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -1.5)
+[node name="Visual" parent="Stations/SocketTable" parent_id_path=PackedInt32Array(385916861) index="0" unique_id=1322370429]
+material_override = SubResource("StandardMaterial3D_bja20")
 
-[node name="Cubo3" parent="." unique_id=2023135592 instance=ExtResource("2_3carf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -1.5)
+[node name="Visual" parent="Stations/DoorLeftPillar" parent_id_path=PackedInt32Array(1339019224) index="0" unique_id=639264086]
+material_override = SubResource("StandardMaterial3D_g7akx")
+
+[node name="Visual" parent="Stations/DoorRightPillar" parent_id_path=PackedInt32Array(425854001) index="0" unique_id=505290435]
+material_override = SubResource("StandardMaterial3D_m2qt5")
+
+[node name="Visual" parent="Stations/TeleportPlatform" parent_id_path=PackedInt32Array(2128421187) index="0" unique_id=618655238]
+material_override = SubResource("StandardMaterial3D_fbmth")
+
+[node name="Visual" parent="Stations/Ramp" parent_id_path=PackedInt32Array(1360674224) index="0" unique_id=1772234227]
+material_override = SubResource("StandardMaterial3D_a2rf4")
+
+[node name="Visual" parent="Stations/BasketBottom" parent_id_path=PackedInt32Array(1286001616) index="0" unique_id=1988221159]
+material_override = SubResource("StandardMaterial3D_jepv5")
+
+[node name="Visual" parent="Stations/BasketBack" parent_id_path=PackedInt32Array(2142203247) index="0" unique_id=1988454526]
+material_override = SubResource("StandardMaterial3D_u0xan")
+
+[node name="Visual" parent="Stations/BasketLeft" parent_id_path=PackedInt32Array(1276149644) index="0" unique_id=1599274248]
+material_override = SubResource("StandardMaterial3D_jm86x")
+
+[node name="Visual" parent="Stations/BasketRight" parent_id_path=PackedInt32Array(609540457) index="0" unique_id=1153522909]
+material_override = SubResource("StandardMaterial3D_irgnt")

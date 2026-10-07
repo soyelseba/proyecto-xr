@@ -1,0 +1,24 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://features/vr/locomotion/vr_teleport.gd" id="1_jid1r"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p0jpk"]
+resource_local_to_scene = true
+albedo_color = Color(0.1, 1, 0.65, 1)
+roughness = 0.8
+
+[sub_resource type="TorusMesh" id="TorusMesh_7b1uw"]
+inner_radius = 0.2
+outer_radius = 0.24
+
+[node name="VRTeleport" type="Node3D" unique_id=1254689137]
+script = ExtResource("1_jid1r")
+
+[node name="Arc" type="MeshInstance3D" parent="." unique_id=1313732201]
+unique_name_in_owner = true
+
+[node name="DestinationMarker" type="MeshInstance3D" parent="." unique_id=1710124735]
+unique_name_in_owner = true
+visible = false
+material_override = SubResource("StandardMaterial3D_p0jpk")
+mesh = SubResource("TorusMesh_7b1uw")

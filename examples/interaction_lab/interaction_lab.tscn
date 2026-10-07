@@ -1,0 +1,654 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://examples/interaction_lab/interaction_lab.gd" id="1_0e82s"]
+[ext_resource type="PackedScene" path="res://features/vr/player/vr_player.tscn" id="2_3ahuk"]
+[ext_resource type="Script" path="res://features/vr/player/vr_player.gd" id="3_fhg0y"]
+[ext_resource type="Resource" path="res://features/vr/player/default_vr_settings.tres" id="4_vlxou"]
+[ext_resource type="PackedScene" path="res://features/vr/interaction/vr_grabbable.tscn" id="5_i3geu"]
+[ext_resource type="Script" path="res://features/vr/interaction/vr_grabbable.gd" id="6_bxqkd"]
+[ext_resource type="PackedScene" path="res://features/vr/interaction/vr_flashlight.tscn" id="7_htetl"]
+[ext_resource type="Script" path="res://features/vr/interaction/vr_flashlight.gd" id="8_5mwvr"]
+[ext_resource type="PackedScene" path="res://features/vr/interaction/vr_button.tscn" id="9_ccewf"]
+[ext_resource type="Script" path="res://features/vr/interaction/vr_button.gd" id="10_ajsur"]
+[ext_resource type="PackedScene" path="res://features/vr/interaction/vr_lever.tscn" id="11_drhh4"]
+[ext_resource type="Script" path="res://features/vr/interaction/vr_lever.gd" id="12_rgiln"]
+[ext_resource type="PackedScene" path="res://features/vr/interaction/vr_socket.tscn" id="13_pciff"]
+[ext_resource type="Script" path="res://features/vr/interaction/vr_socket.gd" id="14_vjail"]
+[ext_resource type="PackedScene" path="res://features/vr/interaction/vr_door.tscn" id="15_m2750"]
+[ext_resource type="Script" path="res://features/vr/interaction/vr_door.gd" id="16_ocgrk"]
+
+[sub_resource type="Environment" id="Environment_f43qb"]
+background_mode = 1
+background_color = Color(0.025, 0.055, 0.085, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.7, 0.85, 1, 1)
+ambient_light_energy = 0.6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jbs8y"]
+resource_local_to_scene = true
+albedo_color = Color(0.12, 0.18, 0.23, 1)
+roughness = 0.8
+
+[sub_resource type="BoxMesh" id="BoxMesh_03t5h"]
+size = Vector3(16, 0.2, 16)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6pu63"]
+size = Vector3(16, 0.2, 16)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lfogf"]
+resource_local_to_scene = true
+albedo_color = Color(0.16, 0.23, 0.3, 1)
+roughness = 0.8
+
+[sub_resource type="BoxMesh" id="BoxMesh_ebs7b"]
+size = Vector3(16, 3, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lwbtd"]
+size = Vector3(16, 3, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jda0x"]
+resource_local_to_scene = true
+albedo_color = Color(0.16, 0.23, 0.3, 1)
+roughness = 0.8
+
+[sub_resource type="BoxMesh" id="BoxMesh_4ioqx"]
+size = Vector3(0.2, 3, 16)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lwyii"]
+size = Vector3(0.2, 3, 16)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6mniw"]
+resource_local_to_scene = true
+albedo_color = Color(0.16, 0.23, 0.3, 1)
+roughness = 0.8
+
+[sub_resource type="BoxMesh" id="BoxMesh_lyt71"]
+size = Vector3(0.2, 3, 16)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r864v"]
+size = Vector3(0.2, 3, 16)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vnes6"]
+resource_local_to_scene = true
+albedo_color = Color(0.16, 0.23, 0.3, 1)
+roughness = 0.8
+
+[sub_resource type="BoxMesh" id="BoxMesh_2rj16"]
+size = Vector3(16, 3, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vsw6n"]
+size = Vector3(16, 3, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4b564"]
+resource_local_to_scene = true
+albedo_color = Color(0.2, 0.28, 0.35, 1)
+roughness = 0.8
+
+[sub_resource type="BoxMesh" id="BoxMesh_icbqj"]
+size = Vector3(2, 0.9, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g3kan"]
+size = Vector3(2, 0.9, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ebk71"]
+resource_local_to_scene = true
+albedo_color = Color(0.1, 0.2, 0.3, 1)
+roughness = 0.8
+
+[sub_resource type="BoxMesh" id="BoxMesh_euibp"]
+size = Vector3(1.6, 1.25, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d4ue7"]
+size = Vector3(1.6, 1.25, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b174a"]
+resource_local_to_scene = true
+albedo_color = Color(0.2, 0.28, 0.35, 1)
+roughness = 0.8
+
+[sub_resource type="BoxMesh" id="BoxMesh_y557u"]
+size = Vector3(1.5, 0.9, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7e5sb"]
+size = Vector3(1.5, 0.9, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_decef"]
+resource_local_to_scene = true
+albedo_color = Color(0.9, 0.3, 0.5, 1)
+roughness = 0.8
+
+[sub_resource type="BoxMesh" id="BoxMesh_abob8"]
+size = Vector3(0.12, 0.4, 0.12)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oudaf"]
+resource_local_to_scene = true
+albedo_color = Color(0.2, 0.28, 0.35, 1)
+roughness = 0.8
+
+[sub_resource type="BoxMesh" id="BoxMesh_t1aor"]
+size = Vector3(1, 0.9, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rkfqg"]
+size = Vector3(1, 0.9, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gy05b"]
+resource_local_to_scene = true
+albedo_color = Color(0.3, 0.4, 0.5, 1)
+roughness = 0.8
+
+[sub_resource type="BoxMesh" id="BoxMesh_lqa64"]
+size = Vector3(0.3, 2.2, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ebgvt"]
+size = Vector3(0.3, 2.2, 0.3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gqml1"]
+resource_local_to_scene = true
+albedo_color = Color(0.3, 0.4, 0.5, 1)
+roughness = 0.8
+
+[sub_resource type="BoxMesh" id="BoxMesh_xntv6"]
+size = Vector3(0.3, 2.2, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v2klu"]
+size = Vector3(0.3, 2.2, 0.3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g0w22"]
+resource_local_to_scene = true
+albedo_color = Color(0.1, 0.4, 0.38, 1)
+roughness = 0.8
+
+[sub_resource type="BoxMesh" id="BoxMesh_qfwj3"]
+size = Vector3(2.2, 0.4, 2.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0s587"]
+size = Vector3(2.2, 0.4, 2.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_35eu1"]
+resource_local_to_scene = true
+albedo_color = Color(0.12, 0.45, 0.4, 1)
+roughness = 0.8
+
+[sub_resource type="BoxMesh" id="BoxMesh_5iqc2"]
+size = Vector3(1.5, 0.1, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0ufew"]
+size = Vector3(1.5, 0.1, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v3jf4"]
+size = Vector3(1, 0.7, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_txsp5"]
+resource_local_to_scene = true
+albedo_color = Color(0.75, 0.4, 0.1, 1)
+roughness = 0.8
+
+[sub_resource type="BoxMesh" id="BoxMesh_fvqrx"]
+size = Vector3(1.2, 0.2, 1.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jb0il"]
+size = Vector3(1.2, 0.2, 1.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_65rr5"]
+resource_local_to_scene = true
+albedo_color = Color(0.75, 0.4, 0.1, 1)
+roughness = 0.8
+
+[sub_resource type="BoxMesh" id="BoxMesh_e80la"]
+size = Vector3(1.2, 0.8, 0.08)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dbw7o"]
+size = Vector3(1.2, 0.8, 0.08)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wdw8t"]
+resource_local_to_scene = true
+albedo_color = Color(0.75, 0.4, 0.1, 1)
+roughness = 0.8
+
+[sub_resource type="BoxMesh" id="BoxMesh_ik7yt"]
+size = Vector3(0.08, 0.8, 1.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d7brg"]
+size = Vector3(0.08, 0.8, 1.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_31keo"]
+resource_local_to_scene = true
+albedo_color = Color(0.75, 0.4, 0.1, 1)
+roughness = 0.8
+
+[sub_resource type="BoxMesh" id="BoxMesh_viyim"]
+size = Vector3(0.08, 0.8, 1.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wf7js"]
+size = Vector3(0.08, 0.8, 1.2)
+
+[node name="InteractionLab" type="Node3D" unique_id=395994755]
+script = ExtResource("1_0e82s")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1786301734]
+environment = SubResource("Environment_f43qb")
+
+[node name="KeyLight" type="DirectionalLight3D" parent="." unique_id=1425069750]
+transform = Transform3D(0.90630776, 0.36599818, -0.21130912, 0, 0.49999997, 0.86602545, 0.42261827, -0.7848856, 0.45315385, 0, 0, 0)
+light_energy = 1.3
+
+[node name="World" type="Node3D" parent="." unique_id=2085984846]
+
+[node name="Floor" type="StaticBody3D" parent="World" unique_id=1568711307 groups=["vr_teleportable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+collision_mask = 6
+
+[node name="Visual" type="MeshInstance3D" parent="World/Floor" unique_id=157670624]
+material_override = SubResource("StandardMaterial3D_jbs8y")
+mesh = SubResource("BoxMesh_03t5h")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="World/Floor" unique_id=909306021]
+shape = SubResource("BoxShape3D_6pu63")
+
+[node name="BackWall" type="StaticBody3D" parent="World" unique_id=1413461805]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -8)
+collision_mask = 6
+
+[node name="Visual" type="MeshInstance3D" parent="World/BackWall" unique_id=380950415]
+material_override = SubResource("StandardMaterial3D_lfogf")
+mesh = SubResource("BoxMesh_ebs7b")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="World/BackWall" unique_id=1775777010]
+shape = SubResource("BoxShape3D_lwbtd")
+
+[node name="LeftWall" type="StaticBody3D" parent="World" unique_id=1147804321]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1.5, 0)
+collision_mask = 6
+
+[node name="Visual" type="MeshInstance3D" parent="World/LeftWall" unique_id=1744822355]
+material_override = SubResource("StandardMaterial3D_jda0x")
+mesh = SubResource("BoxMesh_4ioqx")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="World/LeftWall" unique_id=450386307]
+shape = SubResource("BoxShape3D_lwyii")
+
+[node name="RightWall" type="StaticBody3D" parent="World" unique_id=155444046]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1.5, 0)
+collision_mask = 6
+
+[node name="Visual" type="MeshInstance3D" parent="World/RightWall" unique_id=1347408346]
+material_override = SubResource("StandardMaterial3D_6mniw")
+mesh = SubResource("BoxMesh_lyt71")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="World/RightWall" unique_id=450654193]
+shape = SubResource("BoxShape3D_r864v")
+
+[node name="FrontWall" type="StaticBody3D" parent="World" unique_id=1392141546]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 8)
+collision_mask = 6
+
+[node name="Visual" type="MeshInstance3D" parent="World/FrontWall" unique_id=139617379]
+material_override = SubResource("StandardMaterial3D_vnes6")
+mesh = SubResource("BoxMesh_2rj16")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="World/FrontWall" unique_id=1449942873]
+shape = SubResource("BoxShape3D_vsw6n")
+
+[node name="VRPlayer" type="CharacterBody3D" parent="." unique_id=1110837993 instance=ExtResource("2_3ahuk")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 4.5)
+collision_layer = 4
+collision_mask = 9
+floor_max_angle = 0.6981317
+floor_snap_length = 0.25
+script = ExtResource("3_fhg0y")
+defaults = ExtResource("4_vlxou")
+
+[node name="Title" type="Label3D" parent="." unique_id=2046855886]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1, 0)
+pixel_size = 0.0025
+modulate = Color(0.85, 0.94, 1, 1)
+text = "VR · INTERACTION LAB"
+font_size = 80
+outline_size = 6
+
+[node name="Subtitle" type="Label3D" parent="." unique_id=1742027968]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, 0)
+pixel_size = 0.0025
+modulate = Color(0.85, 0.94, 1, 1)
+text = "Godot 4.7 / Quest 3
+Explora las estaciones. Grip toma, gatillo usa, A teletransporta."
+font_size = 30
+outline_size = 6
+
+[node name="Stations" type="Node3D" parent="." unique_id=529072494]
+
+[node name="GrabTable" type="StaticBody3D" parent="Stations" unique_id=799275405]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.45, 0)
+collision_mask = 6
+
+[node name="Visual" type="MeshInstance3D" parent="Stations/GrabTable" unique_id=143472819]
+material_override = SubResource("StandardMaterial3D_4b564")
+mesh = SubResource("BoxMesh_icbqj")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Stations/GrabTable" unique_id=644679389]
+shape = SubResource("BoxShape3D_g3kan")
+
+[node name="GrabSign" type="Label3D" parent="Stations" unique_id=1170657974]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.9, 0)
+pixel_size = 0.0025
+modulate = Color(0.85, 0.94, 1, 1)
+text = "01 · TOMAR Y LANZAR
+Cerca: mano / Lejos: rayo + Grip"
+outline_size = 6
+
+[node name="Cube1" type="RigidBody3D" parent="Stations" unique_id=1716703338 instance=ExtResource("5_i3geu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6, 1.05, 0)
+collision_layer = 2
+collision_mask = 11
+mass = 0.3
+continuous_cd = true
+script = ExtResource("6_bxqkd")
+display_name = "Cubo 1"
+
+[node name="Cube2" type="RigidBody3D" parent="Stations" unique_id=1207066570 instance=ExtResource("5_i3geu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.05, 0)
+collision_layer = 2
+collision_mask = 11
+mass = 0.3
+continuous_cd = true
+script = ExtResource("6_bxqkd")
+display_name = "Cubo 2"
+
+[node name="Cube3" type="RigidBody3D" parent="Stations" unique_id=1903685695 instance=ExtResource("5_i3geu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4, 1.05, 0)
+collision_layer = 2
+collision_mask = 11
+mass = 0.3
+continuous_cd = true
+script = ExtResource("6_bxqkd")
+display_name = "Cubo 3"
+
+[node name="Flashlight" type="RigidBody3D" parent="Stations" unique_id=128993194 instance=ExtResource("7_htetl")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 1, 0.3)
+collision_layer = 2
+collision_mask = 11
+mass = 0.25
+continuous_cd = true
+script = ExtResource("8_5mwvr")
+display_name = "Linterna"
+color = Color(0.5, 0.6, 0.8, 1)
+item_id = &"flashlight"
+
+[node name="Key" type="RigidBody3D" parent="Stations" unique_id=1081786317 instance=ExtResource("5_i3geu")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 1.08, 0.3)
+collision_layer = 2
+collision_mask = 11
+mass = 0.3
+continuous_cd = true
+script = ExtResource("6_bxqkd")
+display_name = "Llave verde"
+color = Color(0.1, 0.95, 0.6, 1)
+item_id = &"key"
+
+[node name="ControlPanel" type="StaticBody3D" parent="Stations" unique_id=161707359]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 0)
+collision_mask = 6
+
+[node name="Visual" type="MeshInstance3D" parent="Stations/ControlPanel" unique_id=1468490129]
+material_override = SubResource("StandardMaterial3D_ebk71")
+mesh = SubResource("BoxMesh_euibp")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Stations/ControlPanel" unique_id=1622030252]
+shape = SubResource("BoxShape3D_d4ue7")
+
+[node name="ControlSign" type="Label3D" parent="Stations" unique_id=83064896]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, 0)
+pixel_size = 0.0025
+modulate = Color(0.85, 0.94, 1, 1)
+text = "02 · CONTROLES"
+font_size = 36
+outline_size = 6
+
+[node name="MovementButton" type="StaticBody3D" parent="Stations" unique_id=2096061146 instance=ExtResource("9_ccewf")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 1.55, 0.15)
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("10_ajsur")
+caption = "Movimiento libre"
+toggle = true
+
+[node name="SeatedButton" type="StaticBody3D" parent="Stations" unique_id=1202026581 instance=ExtResource("9_ccewf")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 1.55, 0.15)
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("10_ajsur")
+caption = "Modo sentado"
+toggle = true
+
+[node name="DoorButton" type="StaticBody3D" parent="Stations" unique_id=1315464563 instance=ExtResource("9_ccewf")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 1.05, 0.15)
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("10_ajsur")
+caption = "Abrir / cerrar puerta"
+
+[node name="ResetButton" type="StaticBody3D" parent="Stations" unique_id=1952549678 instance=ExtResource("9_ccewf")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 1.05, 0.15)
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("10_ajsur")
+caption = "Reiniciar laboratorio"
+
+[node name="LeverTable" type="StaticBody3D" parent="Stations" unique_id=41829571]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.45, 0)
+collision_mask = 6
+
+[node name="Visual" type="MeshInstance3D" parent="Stations/LeverTable" unique_id=207053235]
+material_override = SubResource("StandardMaterial3D_b174a")
+mesh = SubResource("BoxMesh_y557u")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Stations/LeverTable" unique_id=72554760]
+shape = SubResource("BoxShape3D_7e5sb")
+
+[node name="Lever" type="AnimatableBody3D" parent="Stations" unique_id=279349095 instance=ExtResource("11_drhh4")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.95, 0)
+collision_layer = 8
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("12_rgiln")
+
+[node name="LeverSign" type="Label3D" parent="Stations" unique_id=1801894995]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.9, 0)
+pixel_size = 0.0025
+modulate = Color(0.85, 0.94, 1, 1)
+text = "03 · PALANCA
+Grip y mueve la mano"
+outline_size = 6
+
+[node name="LeverIndicator" type="MeshInstance3D" parent="Stations" unique_id=261893470]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6, 1.3, 0)
+material_override = SubResource("StandardMaterial3D_decef")
+mesh = SubResource("BoxMesh_abob8")
+
+[node name="SocketTable" type="StaticBody3D" parent="Stations" unique_id=385916861]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, -2.7)
+collision_mask = 6
+
+[node name="Visual" type="MeshInstance3D" parent="Stations/SocketTable" unique_id=1322370429]
+material_override = SubResource("StandardMaterial3D_oudaf")
+mesh = SubResource("BoxMesh_t1aor")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Stations/SocketTable" unique_id=2082573719]
+shape = SubResource("BoxShape3D_rkfqg")
+
+[node name="KeySocket" type="Area3D" parent="Stations" unique_id=417194184 instance=ExtResource("13_pciff")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, -2.7)
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("14_vjail")
+
+[node name="SocketSign" type="Label3D" parent="Stations" unique_id=1727090898]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9, -3)
+pixel_size = 0.0025
+modulate = Color(0.85, 0.94, 1, 1)
+text = "04 · ENCAJE
+Suelta la llave verde dentro del aro
+Retírala para cerrar la puerta"
+font_size = 30
+outline_size = 6
+
+[node name="SlidingDoor" type="AnimatableBody3D" parent="Stations" unique_id=1022110890 instance=ExtResource("15_m2750")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.1, -4.5)
+collision_mask = 6
+sync_to_physics = false
+script = ExtResource("16_ocgrk")
+
+[node name="DoorLeftPillar" type="StaticBody3D" parent="Stations" unique_id=1339019224]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1, 1.1, -4.5)
+collision_mask = 6
+
+[node name="Visual" type="MeshInstance3D" parent="Stations/DoorLeftPillar" unique_id=639264086]
+material_override = SubResource("StandardMaterial3D_gy05b")
+mesh = SubResource("BoxMesh_lqa64")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Stations/DoorLeftPillar" unique_id=755099961]
+shape = SubResource("BoxShape3D_ebgvt")
+
+[node name="DoorRightPillar" type="StaticBody3D" parent="Stations" unique_id=425854001]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9, 1.1, -4.5)
+collision_mask = 6
+
+[node name="Visual" type="MeshInstance3D" parent="Stations/DoorRightPillar" unique_id=505290435]
+material_override = SubResource("StandardMaterial3D_gqml1")
+mesh = SubResource("BoxMesh_xntv6")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Stations/DoorRightPillar" unique_id=1722746034]
+shape = SubResource("BoxShape3D_v2klu")
+
+[node name="DoorSign" type="Label3D" parent="Stations" unique_id=1550876135]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2.8, -4.5)
+pixel_size = 0.0025
+modulate = Color(0.85, 0.94, 1, 1)
+text = "05 · PUERTA"
+font_size = 36
+outline_size = 6
+
+[node name="TeleportPlatform" type="StaticBody3D" parent="Stations" unique_id=2128421187 groups=["vr_teleportable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4, 0.2, -1.5)
+collision_mask = 6
+
+[node name="Visual" type="MeshInstance3D" parent="Stations/TeleportPlatform" unique_id=618655238]
+material_override = SubResource("StandardMaterial3D_g0w22")
+mesh = SubResource("BoxMesh_qfwj3")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Stations/TeleportPlatform" unique_id=2015883813]
+shape = SubResource("BoxShape3D_0s587")
+
+[node name="Ramp" type="StaticBody3D" parent="Stations" unique_id=1360674224 groups=["vr_teleportable"]]
+transform = Transform3D(1, 0, 0, 0, 0.9701373, -0.24255633, 0, 0.24255633, 0.9701373, 5.4, 0.15, 0.3)
+collision_mask = 6
+
+[node name="Visual" type="MeshInstance3D" parent="Stations/Ramp" unique_id=1772234227]
+material_override = SubResource("StandardMaterial3D_35eu1")
+mesh = SubResource("BoxMesh_5iqc2")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Stations/Ramp" unique_id=286292437]
+shape = SubResource("BoxShape3D_0ufew")
+
+[node name="TeleportSign" type="Label3D" parent="Stations" unique_id=1760680117]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4, 1.9, -1.5)
+pixel_size = 0.0025
+modulate = Color(0.85, 0.94, 1, 1)
+text = "06 · TELETRANSPORTE
+A: apuntar / soltar: viajar
+Verde válido · Rojo bloqueado"
+outline_size = 6
+
+[node name="ThrowTarget" type="Area3D" parent="Stations" unique_id=1755110670]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.8, -4)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Stations/ThrowTarget" unique_id=600019813]
+shape = SubResource("BoxShape3D_v3jf4")
+
+[node name="BasketBottom" type="StaticBody3D" parent="Stations" unique_id=1286001616]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.25, -4)
+collision_mask = 6
+
+[node name="Visual" type="MeshInstance3D" parent="Stations/BasketBottom" unique_id=1988221159]
+material_override = SubResource("StandardMaterial3D_txsp5")
+mesh = SubResource("BoxMesh_fvqrx")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Stations/BasketBottom" unique_id=1876204480]
+shape = SubResource("BoxShape3D_jb0il")
+
+[node name="BasketBack" type="StaticBody3D" parent="Stations" unique_id=2142203247]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.65, -4.6)
+collision_mask = 6
+
+[node name="Visual" type="MeshInstance3D" parent="Stations/BasketBack" unique_id=1988454526]
+material_override = SubResource("StandardMaterial3D_65rr5")
+mesh = SubResource("BoxMesh_e80la")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Stations/BasketBack" unique_id=2050486096]
+shape = SubResource("BoxShape3D_dbw7o")
+
+[node name="BasketLeft" type="StaticBody3D" parent="Stations" unique_id=1276149644]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6, 0.65, -4)
+collision_mask = 6
+
+[node name="Visual" type="MeshInstance3D" parent="Stations/BasketLeft" unique_id=1599274248]
+material_override = SubResource("StandardMaterial3D_wdw8t")
+mesh = SubResource("BoxMesh_ik7yt")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Stations/BasketLeft" unique_id=804542265]
+shape = SubResource("BoxShape3D_d7brg")
+
+[node name="BasketRight" type="StaticBody3D" parent="Stations" unique_id=609540457]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4, 0.65, -4)
+collision_mask = 6
+
+[node name="Visual" type="MeshInstance3D" parent="Stations/BasketRight" unique_id=1153522909]
+material_override = SubResource("StandardMaterial3D_31keo")
+mesh = SubResource("BoxMesh_viyim")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Stations/BasketRight" unique_id=330383034]
+shape = SubResource("BoxShape3D_wf7js")
+
+[node name="ThrowSign" type="Label3D" parent="Stations" unique_id=1130680758]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.8, -4.5)
+pixel_size = 0.0025
+modulate = Color(0.85, 0.94, 1, 1)
+text = "07 · CESTO
+Lanza un cubo"
+font_size = 36
+outline_size = 6
+
+[node name="Progress" type="Label3D" parent="." unique_id=116255169]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.3, 1.7, -1.5)
+pixel_size = 0.0025
+modulate = Color(0.85, 0.94, 1, 1)
+outline_size = 6
+
+[node name="DesktopHelp" type="CanvasLayer" parent="." unique_id=1899058689]
+unique_name_in_owner = true
+
+[node name="Controls" type="Label" parent="DesktopHelp" unique_id=1101399920]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 16.0
+offset_bottom = 16.0
+theme_override_font_sizes/font_size = 16
+text = "ESCRITORIO · WASD: caminar (activar Movimiento libre) · Ratón: mirar
+Q/E: giro por pasos · T: apuntar teletransporte, soltar para viajar
+F/G: Grip izquierdo/derecho · Clic izquierdo/derecho: usar mano derecha/izquierda
+Esc: liberar/capturar ratón · En VR: stick izquierdo, stick derecho, Grip, gatillo y A"

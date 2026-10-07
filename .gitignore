@@ -19,3 +19,6 @@ export_credentials.cfg
 .mono/
 data_*/
 mono_crash.*.json
+
+# Local verification captures
+/tools/lab_preview.png
